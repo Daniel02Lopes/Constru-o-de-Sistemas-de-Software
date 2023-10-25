@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h2>Criar projetos de lei:</h2>
+
+    <div class="error" th:text="${error}"></div>
+
+    <form action="#" th:action="@{/projetos-de-lei/new}"  method="post" enctype="multipart/form-data">
+        <label for="titulo">Titulo:</label>
+        <input name="titulo" required/><br />
+        <label for="textoDescriptivo">Texto Descriptivo:</label>
+        <textarea name="textoDescriptivo"  rows="5"cols="33" required></textarea><br />
+        <label for="anexo">Anexo:</label>
+        <input type="file" name="anexo" required><br>
+        <label for="dataValidade">Data de Validade:</label>
+        <input type="datetime-local" name="dataValidade" required><br>
+
+        <label for="tema">Tema:</label>
+        <select name="tema" id="tema" required>
+            <option value="">Select a tema</option>
+            <option th:each="tema : ${temas}" th:value="${tema.getId()}" th:text="${tema.getTitulo()}"></option>
+        </select>
+
+        <input type="submit" value="Criar" />
+    </form>
+
+    <button> <a th:href="@{/index}">Voltar</a></button>
+
+
+</body>
+
+</html>

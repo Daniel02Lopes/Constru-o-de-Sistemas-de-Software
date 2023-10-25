@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <h2 class="votacao-title">Votação: <span th:text="${projeto.id}"></span></h2>
+    <div class="error" th:text="${error}"></div>
+    <table>
+        <tr>
+            <th>Titulo:</th>
+            <td th:text="${projeto.titulo}"></td>
+        </tr>
+        <tr>
+            <th>Tema:</th>
+            <td th:text="${projeto.tema.getTitulo()}"></td>
+        </tr>
+        <tr>
+            <th>Texto Descritivo:</th>
+            <td th:text="${projeto.textoDescriptivo}"></td>
+        </tr>
+        <tr>
+            <th>Numero de Votos Favoráveis:</th>
+            <td th:text="${projeto.getVotacao().getVotos_favoraveis()}"></td>
+        </tr>
+        <tr>
+
+            <th>Numero de Votos Desfavoráveis:</th>
+            <td th:text="${projeto.getVotacao().getVotos_desfavoravies()}"></td>
+        </tr>
+        <tr>
+            <th>Data de Validade:</th>
+            <td th:text="${projeto.getDataValidade()}"></td>
+        </tr>
+        </tr>
+    </table>
+    <button>
+        <a th:href="@{'/votacao/' + ${projeto.id} + '/votar'}" class="button">Vote</a>
+    </button>
+    <button> <a th:href="@{/votacoes-em-curso}">Voltar</a></button>
+</body>
+</html>

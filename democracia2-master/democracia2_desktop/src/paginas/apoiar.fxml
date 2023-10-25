@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ApoiarControler">
+	<children>
+      <Text fx:id="pJL" layoutX="22.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Projeto de Lei:" wrappingWidth="197.13671875" />
+      <Text fx:id="titulo" layoutX="21.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titutlo:" />
+      <Text fx:id="tema" layoutX="23.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tema:" />
+      <Text fx:id="texto" layoutX="22.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Texto Descritivo:" />
+      <Button fx:id="btn" layoutX="207.0" layoutY="175.0" mnemonicParsing="false" onAction="#sendApoiar" prefHeight="25.0" prefWidth="186.0" text="Apoiar" />
+      <Button fx:id="btn" layoutX="207.0" layoutY="228.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="186.0" text="Voltar" />
+
+
+
+
+	</children>
+</AnchorPane>

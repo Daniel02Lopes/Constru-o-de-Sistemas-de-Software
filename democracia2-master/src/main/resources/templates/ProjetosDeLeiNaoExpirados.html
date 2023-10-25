@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h2>Projetos de Lei:</h2>
+    <div class="error" th:text="${error}"></div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Tema</th>
+            <th>Estado</th>
+            <th>Número de Apoiantes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${projetos.isEmpty()}">
+            <td colspan="5">Não há Projetos de Lei ativos</td>
+        </tr>
+
+
+        <tr th:each="p : ${projetos}">
+            <td th:text="${p.id}">...</td>
+            <td><a th:href="@{/projetos-de-lei-n-expirados/} + ${p.id}" th:text="${p.titulo}" class="destaque">...</a></td>
+            <td th:text="${p.tema.getTitulo()}">...</td>
+            <td th:text="${p.getEstadoProjetoLei()}">...</td>
+            <td th:text="${p.getNumerodeApoiantes()}">...</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button> <a th:href="@{/index}">Voltar</a></button>
+
+
+</body>
+
+</html>

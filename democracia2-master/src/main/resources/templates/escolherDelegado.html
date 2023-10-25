@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt_PT">
+
+<head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" rel="stylesheet" />
+    <title>Escolher Delegado</title>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1>Escolher Delegado</h1>
+            <form action="/escolher-delegado" method="post">
+                <label for="tema">Tema:</label>
+                <select name="tema" id="tema" required>
+                    <option value="">Select a tema</option>
+                    <option th:each="tema : ${temas}" th:value="${tema.getId()}" th:text="${tema.getTitulo()}"></option>
+                </select>
+
+                <label for="delegado">Selecione um delegado:</label>
+                <select name="delegado" id="delegado" required>
+                    <option value="">Select a delegado</option>
+                    <option th:each="delegado : ${delegados}" th:value="${delegado.getId()}"
+                        th:text="${delegado.getName() + ' ' + delegado.getSurname()}" th:if="${delegado.getId() != democracia2Service.getUser().getId()}"></option>
+                </select>
+                <div class="error" th:text="${error}"></div>
+                <input type="submit" value="Escolher" />
+            </form>
+            <button> <a th:href="@{/index}">Voltar</a></button>
+        </div>
+
+    </div>
+</body>
+
+</html>

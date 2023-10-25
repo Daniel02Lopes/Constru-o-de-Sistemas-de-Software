@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h2>Projetos com Votações em Curso:</h2>
+    <div class="error" th:text="${error}"></div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Tema</th>
+            <th>textoDescriptivo</th>
+            <th>Votos Favoráveis</th>
+            <th>Votos Desfavoráveis</th>
+            <th>Data Fecho</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${votacoes_curso.isEmpty()}">
+            <td colspan="7">Não há Projetos em Votação</td>
+        </tr>
+        <tr th:each="v : ${votacoes_curso}">
+            <td th:text="${v.id}">...</td>
+            <td><a th:href="@{/votacao/} + ${v.id}" th:text="${v.titulo}" class="destaque">...</a></td>
+            <td th:text="${v.tema.getTitulo()}">...</td>
+            <td th:text="${v.textoDescriptivo}">...</td>
+            <td th:text="${v.votacao.votos_favoraveis}">...</td>
+            <td th:text="${v.votacao.votos_desfavoravies}">...</td>
+            <td th:text="${v.votacao.dataFecho}">...</td>
+        </tr>
+
+        </tbody>
+    </table>
+    <button> <a th:href="@{/index}">Voltar</a></button>
+
+</body>
+
+</html>

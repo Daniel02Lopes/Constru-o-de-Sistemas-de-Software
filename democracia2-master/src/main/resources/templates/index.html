@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt_PT">
+
+<head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" rel="stylesheet" />
+    <title>Spring Boot Application</title>
+</head>
+
+<body>
+<div class="container">
+    <div>
+        <h1>CSS -- DEMOCRACIA 2 --</h1>
+        <h2>Bem-vindo, <span th:text="${democracia2Service.getUser().getName()}"></span>!</h2>
+        <ol>
+            <li><a th:href="@{/projetos-de-lei-n-expirados}">Lista Projetos Ativos</a></li>
+            <li><a th:href="@{/votacoes-em-curso}">Lista Projetos em Votação</a></li>
+            <li th:if="${democracia2Service.delegadoService.isDelegado(democracia2Service.getUser().getId())}">
+                <a th:href="@{/projetos-de-lei/new}">Apresentar Projeto de Lei</a>
+            </li>
+            <li>
+                <a th:href="@{/escolher-delegado}">Escolher Delegado</a>
+            </li>
+        </ol>
+
+
+    </div>
+</div>
+</body>
+
+</html>
